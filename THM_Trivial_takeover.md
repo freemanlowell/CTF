@@ -6,7 +6,7 @@ Read the notes and launch the machine.
 
 Add the machine to our hosts file
 ```
-echo 'trivial.thm 10.X.X.X' >>/etc/hosts
+echo '10.X.X.X trivial.thm' >>/etc/hosts
 ```
 
 ## Enumeration

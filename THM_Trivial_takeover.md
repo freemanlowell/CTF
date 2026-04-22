@@ -2,7 +2,9 @@
 
 ## Read before you start!
 
-Read the notes and launch the machine
+Read the notes and launch the machine.
+
+Bruting SSH is out of scope.
 
 ## Enumeration
 
@@ -20,7 +22,7 @@ PORT    STATE SERVICE
 
 ### Is this a router? (yay or nay)
 
-Machine is running BGP so I would say "yay"
+Machine is running BGP so I would say so!
 
 ### What services are running on UDP port 69 and 161 respectively?
 
@@ -38,23 +40,23 @@ PORT    STATE         SERVICE
 
 ### What is the default 'read' community string? 
 
-Quick search shows the answer is 'public'
+Google _"default snmp community"_
 
 ### What is the System Location string?
 
-SNMP walk the router with the default community
+SNMP walk the router with the default community and look for sysLocation
 
 ```
 apt install snmp
 
-snmpwalk -v2c -c public 10.X.X.X .
+snmpwalk -v2c -c ****** 10.X.X.X .
 ```
 
 ## Where are the files?
 
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
-Quick research around TFTP shows the answer is "nay" and file names need to be enumerated using well known filenames foubd on networking devices
+Google _"does tftp support file browsing"_ for the answer
 
 
 ## First Flag
@@ -97,7 +99,7 @@ See if there are any credentials in the file - there are!
 
 ### What type (number) is the router using for it's password encryption?  
 
-The password is also in the file and looks like a type "7" encryption
+The password is also in the file and looks like a type number before the ciphertext
 
 
 ## Second Flag

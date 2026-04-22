@@ -42,7 +42,7 @@ Quick search shows the answer is 'public'
 
 ### What is the System Location string?
 
-Try our luck with the default community 'public' and SNMP walk the router 
+SNMP walk the router with the default community 'public' and 
 
 ```
 apt install snmp

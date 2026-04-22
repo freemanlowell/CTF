@@ -1,9 +1,14 @@
 # Trivial takeover
 
-# Get started
+## Read before you start!
 
-### Scan TCP
+Read the notes and launch the machine
 
+## Enumeration
+
+### What protocol is running on port TCP/179?
+
+TCP scan using nmap
 ```
 nmap -Pn -n -p- -sS 10.X.X.X
 
@@ -13,22 +18,13 @@ PORT    STATE SERVICE
 
 ```
 
-TCP scan shows BGP running so we have found a router.  Leaving BGP alone as thats not going to be a way in.
+### Is this a router? (yay or nay)
 
-_Not bruting SSH as per-instructions and anyway we don't know the password yet!_
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+Machine is running BGP so I would say "yay"
 
-As it looks like a router scan UDP as well as routers can run lots of network services
+### What services are running on UDP port 69 and 161 respectively?
 
+UDP scn using nmap
 ```
 nmap -Pn -n -F -sU 10.X.X.X
 
@@ -36,52 +32,34 @@ PORT    STATE         SERVICE
 69/udp  open|filtered tftp
 161/udp open          snmp
 ```
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-## Warm up challenge - What is the System Location string?
 
-Hint says **Simple** so enumerate SNMP!
+## Walk the walk
 
-Might have to install SNMP tools
+### What is the default 'read' community string? 
+
+Quick search shows the answer is 'public'
+
+### What is the System Location string?
+
+Try our luck with the default community 'public' and SNMP walk the router 
+
 ```
 apt install snmp
-```
 
-Try our luck with the default community 'public'. 
-
-```
 snmpwalk -v2c -c public 10.X.X.X .
 ```
 
-It works and gives a clue as well as the answer to the Challenge question.
+## Where are the files?
 
-```
-iso.3.6.1.2.1.1.6.0 = STRING: "**************************"
-```
-Can't see any RCE opportunitites in SNMP here
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+### Does the supported file transfer protocol support directory listings? (yay or nay)
 
-# Flag 1
+Quick research around TFTP shows the answer is "nay" and file names need to be enumerated from lists of well known names
 
-### Enumerate TFTP
+
+## First Flag
+
+Enumerate TFTP using nmap
 
 ```
 nmap -sU -p69 --script tftp-enum.nse 10.X.X.X
@@ -92,44 +70,43 @@ PORT   STATE SERVICE
 |_  *********
 ```
 
-### Get config
+Then copy the config to attack box
 
-Might have to install a TFTP client
 ```
 apt install tftp
-```
 
-```
 tftp 10.X.X.X                   
 tftp> get *********
 tftp> quit  
 ```
 
-### See if any credentials are in the file - they are!
-
+Read the file
 ```
 cat *********
 ```
 
-Also find the 1st flag "THM{**************************}"
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+....and find the first flag "THM{**************************}"
 
-## Flag 2
 
-### Crack the password
+## Credentials
+
+### The username is....
+
+See if there are any credentials in the file - there are!
+
+
+### What type (number) is the router using for it's password encryption?  
+
+The password is also in the file and looks like a type "7" encryption
+
+
+## Second Flag
+
+Crack the password
 
 Google _"router type 7 password"_
 
-###  Log in and find the 2nd flag
+Log in with credentials and find the second flag
 
 ```
 ssh ******@10.X.X.X

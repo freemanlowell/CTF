@@ -54,7 +54,7 @@ snmpwalk -v2c -c public 10.X.X.X .
 
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
-Quick research around TFTP shows the answer is "nay" and file names need to be enumerated from lists of well known names
+Quick research around TFTP shows the answer is "nay" and file names need to be enumerated using well known filenames foubd on networking devices
 
 
 ## First Flag

@@ -9,8 +9,6 @@ Add the machine to our hosts file
 echo 'trivial.thm 10.X.X.X' >>/etc/hosts
 ```
 
-Bruting SSH is out of scope.
-
 ## Enumeration
 
 ### What protocol is running on port TCP/179?
@@ -24,6 +22,9 @@ PORT    STATE SERVICE
 179/tcp open  bgp
 
 ```
+
+_As per the CTF notes no need to brute force in this challenge!_
+
 
 ### Is this a router? (yay or nay)
 

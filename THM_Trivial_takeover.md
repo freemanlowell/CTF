@@ -4,6 +4,11 @@
 
 Read the notes and launch the machine.
 
+Add the machine to our hosts file
+```
+echo 'trivial.thm 10.X.X.X' >>/etc/hosts
+```
+
 Bruting SSH is out of scope.
 
 ## Enumeration
@@ -12,7 +17,7 @@ Bruting SSH is out of scope.
 
 TCP scan using nmap
 ```
-nmap -Pn -n -p- -sS 10.X.X.X
+nmap -Pn -n -p- -sS trivial.thm
 
 PORT    STATE SERVICE
 22/tcp  open  ssh
@@ -28,7 +33,7 @@ Machine is running BGP so I would say so!
 
 UDP scn using nmap
 ```
-nmap -Pn -n -F -sU 10.X.X.X
+nmap -Pn -n -F -sU trivial.thm
 
 PORT    STATE         SERVICE
 69/udp  open|filtered tftp
@@ -44,12 +49,12 @@ Google _"default snmp community"_
 
 ### What is the System Location string?
 
-SNMP walk the router with the default community and look for sysLocation
+SNMP walk the router with the default community and look for sysLocation (OID = iso.3.6.1.2.1.1.6.0)
 
 ```
 apt install snmp
 
-snmpwalk -v2c -c ****** 10.X.X.X .
+snmpwalk -v2c -c ****** trivial.thm .
 ```
 
 ## Where are the files?
@@ -64,7 +69,7 @@ Google _"does tftp support file browsing"_ for the answer
 Enumerate TFTP using nmap
 
 ```
-nmap -sU -p69 --script tftp-enum.nse 10.X.X.X
+nmap -sU -p69 --script tftp-enum.nse trivial.thm
 
 PORT   STATE SERVICE
 69/udp open  tftp
@@ -77,7 +82,7 @@ Then copy the config to attack box
 ```
 apt install tftp
 
-tftp 10.X.X.X                   
+tftp trivial.thm                 
 tftp> get *********
 tftp> quit  
 ```
@@ -111,7 +116,7 @@ Google _"router type 7 password"_
 Log in with credentials and find the second flag
 
 ```
-ssh ******@10.X.X.X
+ssh ******@trivial.thm
 
 cat flag.txt
 

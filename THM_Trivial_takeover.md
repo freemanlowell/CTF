@@ -32,7 +32,7 @@ Machine is running BGP so I would say so!
 
 ### What services are running on UDP port 69 and 161 respectively?
 
-UDP scn using nmap
+UDP scan using nmap
 ```
 nmap -Pn -n -F -sU trivial.thm
 

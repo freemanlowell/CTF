@@ -1,7 +1,6 @@
 # Trivial takeover
 <br>
 <br>
-<br>
 
 ## Read before you start!
 
@@ -30,7 +29,7 @@ PORT    STATE SERVICE
 ```
 
 _As per the CTF notes no need to brute force in this challenge!_
-
+<br>
 
 ### Is this a router? (yay or nay)
 
@@ -65,6 +64,7 @@ apt install snmp
 
 snmpwalk -v2c -c ****** trivial.thm .
 ```
+<br>
 
 ## Where are the files?
 
@@ -89,6 +89,7 @@ PORT   STATE SERVICE
 | tftp-enum:
 |_  *********
 ```
+<br>
 
 Then copy the config to attack box
 
@@ -99,6 +100,7 @@ tftp trivial.thm
 tftp> get *********
 tftp> quit  
 ```
+<br>
 
 Read the file
 ```
@@ -116,12 +118,12 @@ cat *********
 ### The username is....
 
 See if there are any credentials in the file - there are!
-
+<br>
 
 ### What type (number) is the router using for it's password encryption?  
 
 The password is also in the file and looks like a type number before the ciphertext
-
+<br>
 
 ## Second Flag
 

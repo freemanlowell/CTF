@@ -1,6 +1,5 @@
 # Trivial takeover
 <br>
-<br>
 
 ## Read before you start!
 
@@ -11,8 +10,7 @@ Add the machine to our hosts file
 echo '10.X.X.X trivial.thm' >>/etc/hosts
 ```
 <br>
-<br>
-<br>
+
 
 ## Enumeration
 
@@ -29,7 +27,6 @@ PORT    STATE SERVICE
 ```
 
 _As per the CTF notes no need to brute force in this challenge!_
-<br>
 
 ### Is this a router? (yay or nay)
 
@@ -46,8 +43,7 @@ PORT    STATE         SERVICE
 161/udp open          snmp
 ```
 <br>
-<br>
-<br>
+
 
 ## Walk the walk
 
@@ -67,9 +63,6 @@ snmpwalk -v2c -c ****** trivial.thm .
 <br>
 
 ## Where are the files?
-<br>
-<br>
-<br>
 
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
@@ -78,7 +71,7 @@ Google _"does tftp support file browsing"_ for the answer
 
 
 ## First Flag
-<br>
+
 Enumerate TFTP using nmap
 
 ```
@@ -89,7 +82,6 @@ PORT   STATE SERVICE
 | tftp-enum:
 |_  *********
 ```
-<br>
 
 Then copy the config to attack box
 
@@ -100,7 +92,6 @@ tftp trivial.thm
 tftp> get *********
 tftp> quit  
 ```
-<br>
 
 Read the file
 ```
@@ -108,17 +99,13 @@ cat *********
 ```
 
 ....and find the first flag "THM{**************************}"
-
+<br>
 
 ## Credentials
 
-<br>
-<br>
-<br>
 ### The username is....
 
 See if there are any credentials in the file - there are!
-<br>
 
 ### What type (number) is the router using for it's password encryption?  
 
@@ -127,9 +114,6 @@ The password is also in the file and looks like a type number before the ciphert
 
 ## Second Flag
 
-<br>
-<br>
-<br>
 Crack the password
 
 Google _"router type 7 password"_

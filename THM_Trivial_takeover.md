@@ -8,7 +8,9 @@ Add the machine to our hosts file
 ```
 echo '10.X.X.X trivial.thm' >>/etc/hosts
 ```
-
+<br>
+<br>
+<br>
 ## Enumeration
 
 ### What protocol is running on port TCP/179?
@@ -40,8 +42,9 @@ PORT    STATE         SERVICE
 69/udp  open|filtered tftp
 161/udp open          snmp
 ```
-
-
+<br>
+<br>
+<br>
 ## Walk the walk
 
 ### What is the default 'read' community string? 
@@ -63,8 +66,9 @@ snmpwalk -v2c -c ****** trivial.thm .
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
 Google _"does tftp support file browsing"_ for the answer
-
-
+<br>
+<br>
+<br>
 ## First Flag
 
 Enumerate TFTP using nmap
@@ -97,7 +101,9 @@ cat *********
 
 
 ## Credentials
-
+<br>
+<br>
+<br>
 ### The username is....
 
 See if there are any credentials in the file - there are!
@@ -109,7 +115,9 @@ The password is also in the file and looks like a type number before the ciphert
 
 
 ## Second Flag
-
+<br>
+<br>
+<br>
 Crack the password
 
 Google _"router type 7 password"_

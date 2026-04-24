@@ -67,18 +67,18 @@ snmpwalk -v2c -c ****** trivial.thm .
 <br>
 
 ## Where are the files?
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<br>
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
 Google _"does tftp support file browsing"_ for the answer
 <br>
-<br>
-<br>
-## First Flag
 
+
+## First Flag
+<br>
 Enumerate TFTP using nmap
 
 ```

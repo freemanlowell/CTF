@@ -1,4 +1,7 @@
 # Trivial takeover
+<br>
+<br>
+<br>
 
 ## Read before you start!
 
@@ -11,6 +14,7 @@ echo '10.X.X.X trivial.thm' >>/etc/hosts
 <br>
 <br>
 <br>
+
 ## Enumeration
 
 ### What protocol is running on port TCP/179?
@@ -45,6 +49,7 @@ PORT    STATE         SERVICE
 <br>
 <br>
 <br>
+
 ## Walk the walk
 
 ### What is the default 'read' community string? 
@@ -63,6 +68,9 @@ snmpwalk -v2c -c ****** trivial.thm .
 
 ## Where are the files?
 
+<br>
+<br>
+<br>
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
 Google _"does tftp support file browsing"_ for the answer
@@ -101,6 +109,7 @@ cat *********
 
 
 ## Credentials
+
 <br>
 <br>
 <br>
@@ -115,6 +124,7 @@ The password is also in the file and looks like a type number before the ciphert
 
 
 ## Second Flag
+
 <br>
 <br>
 <br>

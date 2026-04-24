@@ -101,6 +101,7 @@ cat *********
 ....and find the first flag "THM{**************************}"
 <br>
 
+
 ## Credentials
 
 ### The username is....
@@ -111,6 +112,7 @@ See if there are any credentials in the file - there are!
 
 The password is also in the file and looks like a type number before the ciphertext
 <br>
+
 
 ## Second Flag
 

@@ -67,8 +67,8 @@ snmpwalk -v2c -c ****** trivial.thm .
 ### Does the supported file transfer protocol support directory listings? (yay or nay)
 
 Google _"does tftp support file browsing"_ for the answer
-<br>
 
+<br>
 
 ## First Flag
 

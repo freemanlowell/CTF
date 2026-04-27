@@ -1,7 +1,7 @@
 # Trivial takeover
 <br>
 
-## Read before you start!
+## Readme
 
 Read the notes and launch the machine.
 
